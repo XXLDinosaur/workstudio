@@ -16,7 +16,7 @@ class ReleaseTests(unittest.TestCase):
 
     def test_installed_audio_engine_uses_relocatable_paths(self):
         with tempfile.TemporaryDirectory() as temp:
-            install = Path(temp) / 'workstudio'
+            install = Path(temp).resolve() / 'workstudio'
             (install / 'audio-runtime').mkdir(parents=True)
             (install / 'audio-runtime' / 'python.exe').touch()
             with patch('sys.frozen', True, create=True), patch('sys.executable', str(install / 'workstudio.exe')):
