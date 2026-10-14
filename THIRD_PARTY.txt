@@ -1,0 +1,40 @@
+workstudio 1.0.0 — third-party notices
+
+workstudio source: https://github.com/XXLDinosaur/workstudio
+License: GNU GPL version 3 (LICENSE).
+SurfaceStudio-derived UI CSS, frameless window controls and single-instance helper
+are included in this source distribution under GPL-3.0.
+
+FFmpeg and FFprobe 9.0.2, static essentials Windows build by Gyan Doshi.
+Copyright (c) the FFmpeg developers and linked library authors.
+Binary package: https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-9.0.2-essentials_build.zip
+Package SHA256: 60f467265b1e312373dbcd92200c2618a74850f98d3d078e94296bb3fa2047ba
+FFmpeg source: https://github.com/FFmpeg/FFmpeg/tree/946fcce07b
+Release source: https://ffmpeg.org/releases/ffmpeg-9.0.2.tar.xz
+Build information and library list: https://www.gyan.dev/ffmpeg/builds/
+License: GPLv3; full GPL text in LICENSE and licenses/GPL-3.0.txt.
+Used as separate local command-line programs; no system codec installation.
+The build configuration is available via _internal/bin/ffmpeg.exe -buildconf.
+
+pywebview 6.2.1: BSD-3-Clause, https://github.com/r0x0r/pywebview
+Pillow: HPND, https://github.com/python-pillow/Pillow
+Python: PSF license, https://www.python.org/
+pythonnet: MIT, https://github.com/pythonnet/pythonnet
+clr-loader: MIT, https://github.com/pythonnet/clr-loader
+PyInstaller: GPL with bootloader exception, https://pyinstaller.org/
+License texts are provided in licenses and bundled package metadata.
+WebView2 is a Microsoft runtime installed separately, not a workstudio component.
+
+Local audio content classification:
+LAION CLAP model weights: Apache-2.0, https://huggingface.co/laion/clap-htsat-unfused
+LAION CLAP reference code: CC0-1.0, https://github.com/LAION-AI/CLAP
+ONNX weights: https://huggingface.co/Xenova/clap-htsat-unfused
+Pinned revision: c28f2883575e590e04d3146ff0713c2448d691ba
+Weights' file hashes: models/clap/manifest.json in the installed application.
+Transformers 4.57.1: Apache-2.0, https://github.com/huggingface/transformers
+ONNX Runtime DirectML 1.23.0: MIT, https://github.com/microsoft/onnxruntime
+NumPy: BSD-3-Clause, https://numpy.org/
+Audio dependency versions are pinned in requirements-audio-lock.txt.
+Their original license notices and METADATA remain in audio-runtime/Lib/site-packages.
+
+No user library media or After Effects templates are redistributed.

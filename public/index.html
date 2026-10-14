@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN" data-appearance="light" data-reading="standard">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>workstudio</title><link rel="icon" href="/icon.svg"><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/glass.css"><link rel="stylesheet" href="/readability.css"><link rel="stylesheet" href="/workbench.css"><link rel="stylesheet" href="/daylight.css"><link rel="stylesheet" href="/ae.css"><link rel="stylesheet" href="/media.css"><link rel="stylesheet" href="/window-chrome.css"><link rel="stylesheet" href="/controls.css"></head>
+<body>
+<svg class="sprite" aria-hidden="true"><defs>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.5 4.8c-2-2-5.5-1.8-8.5 1.5-3-3.3-6.5-3.5-8.5-1.5-2.7 2.7-1.5 6.5.9 9L12 21l7.6-7.2c2.4-2.5 3.6-6.3.9-9Z"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.7" cy="10.7" r="6.7"/><path d="m16 16 4.5 4.5"/></symbol>
+<symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h5l2 3h7a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5M5 7a8 8 0 0 1 13-2l2 3M4 16l2 3a8 8 0 0 0 13-2"/></symbol>
+<symbol id="i-list" viewBox="0 0 24 24"><path d="M8 5h13M8 12h13M8 19h13M3 5h.01M3 12h.01M3 19h.01"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="m8 4 12 8-12 8Z"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3"/><circle cx="16" cy="17" r="3"/></symbol>
+<symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></symbol>
+</defs></svg>
+<div class="app">
+<aside class="sidebar">
+<a class="brand" href="/" aria-label="workstudio 首页"><img class="brand-icon" src="/icon.svg" alt=""><span>workstudio<small>YOUR LOCAL ASSET LIBRARY</small></span></a>
+<div class="nav-label">工作空间 <span>WORKSPACE</span></div>
+<nav id="main-nav"><button class="nav-item active" data-view="all"><svg><use href="#i-grid"/></svg>全部素材<span class="nav-count" id="all-count">—</span></button><button class="nav-item" data-view="favorites"><svg><use href="#i-heart"/></svg>我的收藏<span class="nav-count" id="fav-count">0</span></button><button class="nav-item" data-view="recent"><svg><use href="#i-clock"/></svg>最近浏览</button></nav>
+<div class="nav-label category-label"><span id="category-label">文件夹分类</span><span id="category-number"></span></div><div id="audio-grouping" class="audio-grouping" hidden><button data-grouping="smart">智能分类</button><button data-grouping="folder">原始文件夹</button></div><nav id="categories" class="categories"></nav>
+<div class="nav-label collections-label">我的集合<button id="new-collection" class="icon-button" title="新建集合"><svg><use href="#i-plus"/></svg></button></div><nav id="collections"></nav>
+<div class="sidebar-bottom"><button id="settings" class="nav-item"><svg><use href="#i-settings"/></svg>管理素材库</button><div class="storage"><div><span><i class="live-dot"></i> 本地素材库</span><b id="storage-size">—</b></div><small id="storage-path">添加你的素材文件夹</small></div></div>
+</aside>
+<section class="main-shell">
+<header class="topbar"><div class="breadcrumb">工作空间 <span>›</span><span id="breadcrumb-title">全部素材</span></div><div class="topbar-right"><span class="local-label"><i class="live-dot"></i> 本地预览 · 即看即用</span><button id="refresh" class="icon-button" title="重新扫描素材库"><svg><use href="#i-refresh"/></svg></button><button id="cancel-scan" class="text-button" hidden>取消扫描</button><button id="theme" class="outline-button">深色</button></div></header>
+<section class="workbench-controls"><div class="library-tabs"><div class="tabs"><button class="selected" id="tab-all">素材库 <span id="result-count">—</span></button><span class="browse-hint">悬停播放 · 点击查看 · 双击放大</span></div><div class="library-status"><i class="live-dot"></i><span id="index-status">正在连接…</span></div></div>
+<div id="type-tabs" class="type-tabs" aria-label="素材类型"></div><div class="toolbar"><div class="search-box"><svg><use href="#i-search"/></svg><input type="search" id="search" placeholder="搜索名称、文件夹、关键词…" autocomplete="off" aria-label="搜索素材"><kbd>Ctrl K</kbd></div><select id="source-filter" aria-label="素材库来源"><option value="">所有素材库</option></select><select id="preview-filter" aria-label="筛选预览"><option value="">全部预览</option><option value="video">有视频预览</option><option value="image">仅图片预览</option><option value="missing">缺少预览</option><option value="archive">仅压缩包</option></select><select id="sort" aria-label="排序"><option value="name">名称排序</option><option value="recent">最近更新</option><option value="size">文件大小</option></select><select id="density" aria-label="卡片大小"><option value="230">紧凑</option><option value="290" selected>标准</option><option value="380">大图</option></select><div class="view-buttons"><button id="grid-view" class="icon-button active" title="网格视图"><svg><use href="#i-grid"/></svg></button><button id="list-view" class="icon-button" title="列表视图"><svg><use href="#i-list"/></svg></button></div></div>
+<div id="active-filters" class="active-filters"></div></section>
+<main id="scroll-area"><div id="scan-error" class="error-banner" hidden></div><div class="overview" id="overview"></div><div id="asset-grid" class="asset-grid" aria-live="polite"></div><div id="empty" class="empty" hidden><svg><use href="#i-search"/></svg><h3>没有找到素材</h3><p>换个关键词，或清除筛选再看看。</p><button class="outline-button" id="empty-reset">查看全部素材</button></div><div id="load-sentinel" class="load-more" role="status" aria-live="polite"><span id="shown-count"></span><span id="load-status"></span><button id="retry-load" class="outline-button" hidden>重新加载</button></div></main><section id="audio-dock" class="audio-dock" hidden aria-label="音频试听"><div class="audio-dock-info"><span class="dock-icon">♫</span><div><strong id="audio-title"></strong><small id="audio-caption"></small></div></div><button id="audio-prev" class="icon-button" title="上一首">‹</button><audio id="audio-player" controls preload="metadata"></audio><button id="audio-next" class="icon-button" title="下一首">›</button><button id="audio-close" class="icon-button" title="停止试听">×</button></section>
+</section><aside id="detail" class="detail" hidden aria-label="素材详情"></aside></div>
+<div id="audio-analysis-storage" hidden><div id="audio-analysis-bar" class="audio-analysis-bar" hidden><div><strong>声音内容分类</strong><span id="analysis-progress"></span><small id="analysis-message"></small></div><div class="analysis-controls"><button type="button" class="text-button" id="review-analysis" aria-pressed="false">查看待确认</button><button type="button" class="outline-button" id="start-analysis">整理待分类音频</button><button type="button" class="outline-button" id="pause-analysis" hidden>暂停</button></div></div></div><dialog id="modal"><div id="modal-content"></div></dialog><div id="toast" class="toast" role="status"></div>
+<script src="/studio.js"></script><script src="/window-chrome.js"></script><script src="/controls.js"></script></body></html>
+

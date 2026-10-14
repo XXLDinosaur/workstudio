@@ -1,0 +1,47 @@
+/* Desktop interaction: only editable fields select text. */
+body,body *{user-select:none;-webkit-user-select:none}
+input,textarea,[contenteditable="true"],[contenteditable="true"] *{user-select:text;-webkit-user-select:text}
+img,a{-webkit-user-drag:none}
+.native-desktop .app{padding:12px;gap:12px}
+.native-desktop.window-maximized .app{padding:6px;gap:8px}
+.native-desktop .breadcrumb{min-width:0;flex-shrink:1;white-space:nowrap;overflow:hidden}
+.native-desktop #breadcrumb-title{overflow:hidden;text-overflow:ellipsis}
+.native-desktop .window-drag-space{min-width:24px}
+@media(max-width:1250px){.native-desktop .local-label{display:none}}
+
+/* Native selects retain their values and change handlers; the visible menu is themed. */
+.studio-select{position:relative;display:inline-flex;min-width:0;flex-shrink:0;vertical-align:middle}
+.studio-select>select{position:absolute!important;inset:0!important;width:1px!important;height:1px!important;min-width:0!important;margin:0!important;padding:0!important;opacity:0;pointer-events:none}
+.studio-select-trigger{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;min-width:0;min-height:42px;padding:10px 14px;border:1px solid var(--line);border-radius:13px;background:var(--input);color:var(--ink);text-align:left;font-size:var(--read-main,13px);transition:background .15s,border-color .15s,box-shadow .15s}
+.studio-select-trigger:hover{background:var(--selected);border-color:var(--glass-edge)}
+.studio-select-trigger[aria-expanded="true"]{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 15%,transparent)}
+.studio-select-trigger:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.studio-select-trigger:disabled{cursor:default}
+.studio-select-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.studio-select-chevron{width:14px;height:14px;opacity:.7;transition:transform .15s}
+.studio-select-trigger[aria-expanded="true"] .studio-select-chevron{transform:rotate(180deg)}
+.toolbar .studio-select[data-select-id="source-filter"]{width:164px;max-width:190px}
+.toolbar .studio-select[data-select-id="preview-filter"]{width:130px}
+.toolbar .studio-select[data-select-id="sort"]{width:116px}
+.toolbar .studio-select[data-select-id="density"]{width:88px}
+.toolbar .studio-select-trigger{min-height:44px;font-size:13px;gap:8px}
+.studio-select.project-select{display:flex;width:100%;margin-bottom:9px}
+.studio-select.source-kind{grid-column:2;display:flex}
+.source-kind .studio-select-trigger{font-size:12px}
+.studio-select-menu{position:fixed;inset:auto;margin:0;padding:6px;max-width:calc(100vw - 24px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;border:1px solid #bdd9dc45;border-radius:16px;background:#293e4ff7;box-shadow:0 18px 48px #06111e55,0 2px 8px #06111e26;backdrop-filter:blur(24px);color:var(--ink);font:inherit}
+.studio-select-menu::backdrop{background:transparent;pointer-events:none}
+html[data-appearance="light"] .studio-select-menu{background:#e2eceaf7;border-color:#ffffffad;box-shadow:0 16px 44px #304c5a30,0 2px 8px #304c5a14}
+.studio-select-option{display:flex;align-items:center;gap:16px;justify-content:space-between;min-height:38px;padding:9px 12px;border-radius:10px;cursor:pointer;font-size:13px;line-height:1.5;overflow-wrap:anywhere}
+.studio-select-option.is-active{background:var(--input)}
+.studio-select-option[aria-selected="true"]{color:var(--accent);background:color-mix(in srgb,var(--accent) 13%,transparent);font-weight:600}
+.studio-select-option[aria-selected="true"].is-active{background:color-mix(in srgb,var(--accent) 22%,transparent)}
+.studio-select-option[aria-disabled="true"]{opacity:.4;cursor:default}
+.studio-select-check{width:15px;height:15px;flex:none;visibility:hidden}
+.studio-select-option[aria-selected="true"] .studio-select-check{visibility:visible}
+.studio-select-group{font-size:11px;color:var(--ink-muted);padding:12px 12px 5px;font-weight:600;letter-spacing:.05em}
+.studio-select-group:first-child{padding-top:5px}
+@media(prefers-reduced-motion:reduce){.studio-select-trigger,.studio-select-chevron{transition:none}}
+.analysis-settings{margin:16px 0;border-top:1px solid var(--line);padding-top:14px}
+.analysis-settings>summary{cursor:pointer;color:var(--ink-soft);font-size:13px;padding:4px 0}
+.analysis-settings .audio-analysis-bar{margin:12px 0 0;flex-direction:column;align-items:stretch}
+.analysis-settings .analysis-controls{display:flex;align-items:center;justify-content:flex-end;gap:8px}

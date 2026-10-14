@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <title>workstudio — 影音素材库</title>
+  <rect width="128" height="128" rx="30" fill="#214D51"/>
+  <rect x="40" y="28" width="56" height="28" rx="9" fill="#80AFA3"/>
+  <path fill-rule="evenodd" d="M24 48a9 9 0 0 1 9-9h12a7 7 0 0 1 5.4 2.5L57 49h37a10 10 0 0 1 10 10v32a10 10 0 0 1-10 10H34a10 10 0 0 1-10-10V48Zm33 16.2v21.6c0 1.9 2.1 3.1 3.7 2.1l17.5-10.8c1.6-1 1.6-3.2 0-4.2L60.7 62.1c-1.6-1-3.7.2-3.7 2.1Z" fill="#ECEBDD"/>
+</svg>
