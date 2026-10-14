@@ -22,5 +22,8 @@ try {
     New-Item -ItemType Directory -Path 'releases' -Force | Out-Null
     & $wix build build/installer/workstudio.wxs -arch x64 -ext WixToolset.UI.wixext -culture zh-CN -out "releases/workstudio-$version-x64.msi"
     if ($LASTEXITCODE -ne 0) { throw 'MSI build failed' }
+    # ICE91 concerns per-machine distribution; this package is per-user only.
+    & $wix msi validate "releases/workstudio-$version-x64.msi" -sice ICE91 *> 'build/installer/validation.log'
+    if ($LASTEXITCODE -ne 0) { Get-Content 'build/installer/validation.log' -Tail 30; throw 'MSI validation failed' }
     Get-FileHash -LiteralPath "releases/workstudio-$version-x64.msi" -Algorithm SHA256
 } finally { Pop-Location }

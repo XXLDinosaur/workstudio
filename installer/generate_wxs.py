@@ -59,6 +59,7 @@ def generate(payload, output, version):
     shortcuts = add(folder, 'Component', Id='Shortcuts', Guid='57F148E3-0795-4099-B8F3-F010C00EE29F')
     add(shortcuts, 'Shortcut', Id='StartShortcut', Name='workstudio', Target='[INSTALLFOLDER]workstudio.exe', WorkingDirectory='INSTALLFOLDER', Icon='AppIcon')
     add(shortcuts, 'RemoveFolder', Id='RemoveMenu', On='uninstall')
+    add(shortcuts, 'RemoveFolder', Id='RemoveUserPrograms', Directory='UserPrograms', On='uninstall')
     add(shortcuts, 'RegistryValue', Root='HKCU', Key='Software\\workstudio', Name='InstallDir', Type='string', Value='[INSTALLFOLDER]', KeyPath='yes')
     add(feature, 'ComponentRef', Id='Shortcuts')
     desktop = add(package, 'StandardDirectory', Id='DesktopFolder')
